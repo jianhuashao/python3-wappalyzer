@@ -91,6 +91,19 @@ class WebPage(object):
         response : requests.Response object
         """
         return cls(response.url, html=response.text, headers=response.headers)
+        
+    @classmethod
+    def new_from_text(cls, text):
+        """
+        Constructs a new WebPage object for the response,
+        using the `BeautifulSoup` module to parse the HTML.
+
+        Parameters
+        ----------
+
+        response : requests.Response object
+        """
+        return cls('', html=text, headers={})
 
 
 class Wappalyzer(object):
